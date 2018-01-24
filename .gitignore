@@ -1,0 +1,12 @@
+env/
+
+*.pyc
+
+__pycache__
+
+grandpyapp/static/*.jpg
+
+geckodriver.log
+
+.cache/
+Usefull ressources.docx
