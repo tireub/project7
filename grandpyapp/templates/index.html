@@ -47,10 +47,38 @@
           </div>
 
           <div class="inner cover">
-            <h1 class="cover-heading">Effectuer la recherche.</h1>
+            <h1 class="cover-heading">Bonjour mon grand. Qu'est-ce que tu recherches?</h1>
 
-              <a href="#" class="btn btn-lg btn-default">Paris</a>
-            </p>
+            <form action="/place">
+              <div class="form-group search-margin">
+                <input class="form-control" type="text" name="search_location"
+                       id="add" value={{ research_location }}>
+              </div>
+            </form>
+
+            <!--<form id="disambButton" action='/disamb'>
+              <input type="button" id="button" value="Ce n'est pas exactement ce que je recherche">
+            </form>-->
+
+            <div class="disamb_list" style="display:{{ disamb_display }}">
+              <ul>
+                {{ disamb_list }}
+              </ul>
+            </div>
+
+
+            <div class="map_display" style="display:{{ map_display }}">
+              <iframe
+                width="600"
+                height="450"
+                frameborder="0" style="border:0"
+                src="https://www.google.com/maps/embed/v1/place?key={{ config['GOOGLE_MAPS_API'] }}
+                     &q={{ research_location }}" allowfullscreen>
+              </iframe>
+            </div>
+            <div class="quote_display">{{ quote }}</div>
+
+            </div>
           </div>
 
           <div class="mastfoot">
@@ -68,9 +96,11 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery-3.3.1.min.js"></script>
+    <script src="{{ url_for('static', filename='js/jquery/jquery-3.3.1.js') }}"></script>
+
 
     <script src="{{ url_for('static', filename='js/bootstrap/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/cover.js') }}"></script>
 
   </body>
 </html>
