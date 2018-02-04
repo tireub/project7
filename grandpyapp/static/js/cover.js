@@ -1,12 +1,12 @@
 $(function() {
-    $('form').keypress(function(e) {
+    $('#search_location').keypress(function(e) {
 
         if(e.which == 13) {
             var location = $('#txtsearch_location').val();
 
             $.ajax({
                 url: '/place',
-                data: $('form').serialize(),
+                data: $('#search_location').serialize(),
                 type: 'POST',
                 success: function(response) {
                     console.log(response);},
@@ -17,12 +17,12 @@ $(function() {
     });
 
 
-    $('#disambButton').on('click', function() {
+     $('#disamb').on('click', function() {
         var location = $('#txtsearch_location').val();
 
             $.ajax({
                 url: '/disamb',
-                data: $('#form').serialize(),
+                data: $('#search_location').serialize(),
                 type: 'POST',
                 success: function(response) {
                     console.log(response);},

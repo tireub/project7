@@ -51,19 +51,21 @@
 
             <form action="/place">
               <div class="form-group search-margin">
-                <input class="form-control" type="text" name="search_location"
+                <input class="form-control" name="search_location"
                        id="add" value={{ research_location }}>
               </div>
             </form>
 
-            <!--<form id="disambButton" action='/disamb'>
-              <input type="button" id="button" value="Ce n'est pas exactement ce que je recherche">
-            </form>-->
+            <form action="/disamb">
+              <button id="disambButton" name="search_location" value="{{ research_location }}">
+                Ce n'est pas exactement ce que je recherche
+              </button>
+            </form>
 
             <div class="disamb_list" style="display:{{ disamb_display }}">
-              <ul>
+
                 {{ disamb_list }}
-              </ul>
+
             </div>
 
 
