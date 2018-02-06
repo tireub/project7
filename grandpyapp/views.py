@@ -39,5 +39,14 @@ def disambiguation():
                            research_location=research_location,
                            quote="")
 
+@app.route('/newPlace')
+def updateResults():
+    research_location = request.args.get("search_location")
+    displayed_quote = research()
+    displayed_quote.search(research_location)
+    return render_template('index.html',
+                           disamb_display="none;",
+                           research_location=research_location,
+                           quote=displayed_quote.page_py.content[:500])
 
 

@@ -16,10 +16,17 @@ class research:
             self.articles = e.options
 
     def disamb(self, desired_location):
-        self.articles = wikipedia.search(desired_location, results=5)
-        self.html_list = ""
-        for a in self.articles:
-            self.html_list+=("<li>"+a+"</li>")
+        wikipedia.set_lang("en")
+        try:
+            self.articles = wikipedia.search(desired_location)
+        except wikipedia.exceptions.DisambiguationError as e:
+            self.articles = e.options
+
+        self.html_list = self.articles
+
+        # for a in self.articles:
+        #    self.html_list.append(a)
+
 
 
 

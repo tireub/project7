@@ -62,11 +62,15 @@
               </button>
             </form>
 
-            <div class="disamb_list" style="display:{{ disamb_display }}">
+            <form onclick="/newPlace">
 
-                {{ disamb_list }}
+                <ul class="entries" style="display:{{ disamb_display }}">
+                  {% for disamb in disamb_list %}
+                  <li name="search_location">{{ disamb }}</li>
+                  {% endfor %}
+                </ul>
 
-            </div>
+            </form>
 
 
             <div class="map_display" style="display:{{ map_display }}">
